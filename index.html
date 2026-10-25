@@ -124,7 +124,7 @@ footer{border-top:1px solid var(--line);padding:2rem 0 3rem;color:var(--mut);fon
 
 <section class="ch" id="guide"><h2>The field guide</h2><div class="guide">
   <div><h3>Phishing</h3><ul><li><strong>Check the sender.</strong> Read the full address, not the display name.</li><li><strong>Hover before you click.</strong> The real destination shows on screen.</li><li><strong>Distrust urgency.</strong> Deadlines are built to stop you thinking.</li><li><strong>Verify another way.</strong> Call a number you already have.</li></ul></div>
-  <div><h3>Passwords</h3><ul><li><strong>Use a passphrase.</strong> Four random words beat a short, tricky one.</li><li><strong>Never reuse.</strong> One breach shouldn’t open every account.</li><li><strong>Use a manager.</strong> It remembers so you don’t.</li><li><strong>Turn on MFA.</strong> An authenticator app beats text messages.</li></ul></div>
+  <div><h3>Passwords</h3><ul><li><strong>Mix it up.</strong> Combine capitals, lowercase letters, numbers and symbols.</li><li><strong>Make it long.</strong> A passphrase of four random words beats a short, tricky one.</li><li><strong>Never reuse.</strong> One breach shouldn’t open every account.</li><li><strong>Use a manager.</strong> It remembers so you don’t.</li><li><strong>Turn on MFA.</strong> An authenticator app beats text messages.</li></ul></div>
   <div><h3>Devices</h3><ul><li><strong>Install updates.</strong> They close holes attackers already know.</li><li><strong>Lock your screen</strong> whenever you step away, and encrypt the disk.</li><li><strong>Be wary of public Wi-Fi.</strong> Use a VPN or your hotspot.</li><li><strong>Skip unknown USB drives.</strong> Found drives are a classic trap.</li></ul></div>
   <div><h3>Responding</h3><ul><li><strong>Stop, and don’t reply.</strong> Leave links and files alone.</li><li><strong>Report fast.</strong> Use the report button or tell IT.</li><li><strong>Already clicked?</strong> Change the passwords and say so. Nobody gets blamed.</li></ul></div>
 </div></section>
@@ -209,6 +209,10 @@ f.style.width=Math.min(b/90,1)*100+"%";f.style.background=lv[1];
 $("lvl").textContent=lv[0];$("time").textContent="Cracked in: "+dur(secs);
 const tips=[];if(p.length<12)tips.push("Aim for 12 or more characters. Length matters most.");
 if(COMMON.some(c=>p.toLowerCase().includes(c)))tips.push("It contains a very common word or pattern.");
+if(!/[A-Z]/.test(p))tips.push("Add a capital letter.");
+if(!/[a-z]/.test(p))tips.push("Add a lowercase letter.");
+if(!/\d/.test(p))tips.push("Add a number.");
+if(!/[^A-Za-z0-9]/.test(p))tips.push("Add a symbol like ! or #.");
 if(/^[a-z]+$/i.test(p)&&p.length<16)tips.push("Try several random words joined together.");
 if(!tips.length)tips.push("Nice. Make it unique for every account and turn on MFA.");
 t.innerHTML=tips.map(x=>`<li>${x}</li>`).join("")});
